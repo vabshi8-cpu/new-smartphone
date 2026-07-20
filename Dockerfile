@@ -51,8 +51,9 @@ RUN curl -fsSL https://github.com/tmate-io/tmate/releases/download/2.4.0/tmate-2
 RUN curl -sSf https://sshx.io/get | sh -s -- -q
 
 # --- Discord bot deps ---
+COPY requirements.txt /opt/vpsforge/requirements.txt
 RUN pip3 install --no-cache-dir --break-system-packages \
-    "discord.py>=2.3.2" python-dotenv docker aiohttp
+    -r /opt/vpsforge/requirements.txt
 
 # --- noVNC symlink for clean URL ---
 RUN ln -sf /usr/share/novnc/vnc.html /usr/share/novnc/index.html
