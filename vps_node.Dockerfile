@@ -15,8 +15,7 @@ RUN curl -fsSL https://github.com/tmate-io/tmate/releases/download/2.4.0/tmate-2
     install -m 0755 /tmp/tmate-2.4.0-static-linux-amd64/tmate /usr/local/bin/tmate && \
     rm -rf /tmp/tmate*
 
-# sshx client
-RUN curl -sSf https://sshx.io/get | sh -s -- -q
+RUN curl -sSf https://sshx.io/get | sh -s -- install
 
 # Default unprivileged user with passwordless sudo
 RUN useradd -m -s /bin/bash vps && \
